@@ -1,3 +1,7 @@
+Step 1: clone this project with link https://github.com/baljit92singh/login-with-chat-static,
+Step 2: NPM install from CMD,
+Step 3: Run Project with command ng serve.
+
 # LoginWithChat
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
