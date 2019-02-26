@@ -3,9 +3,6 @@ import { MatDialog, MatDialogRef, MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
-
-const AVATAR_URL = 'https://api.adorable.io/avatars/285';
-
 @Component({
   selector: 'tcc-chat',
   templateUrl: './chat.component.html',
@@ -70,13 +67,7 @@ export class ChatComponent implements OnInit {
       reader.readAsDataURL(file);
       console.log(file);
       reader.onload = () => {
-        // console.log(reader.result)
         this.messageForm.controls['avatar'].setValue(reader.result)
-        //   // this.messageForm.get('avatar').setValue({
-        //   //   filename: file.name,
-        //   //   filetype: file.type,
-        //   //   value: reader.result.split(',')[1]
-        //   // })
       };
     }
   }
