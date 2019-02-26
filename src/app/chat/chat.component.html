@@ -1,0 +1,39 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Dashboard</span>
+    <span class="example-spacer"></span>
+    User (Baljit92singh)
+    <mat-icon class="example-icon" matTooltip="Logout" (click)="logoutData()">person</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="chat-container">
+  <mat-card class="main-card">
+    <button *ngIf="mode==='new'" color="primary" mat-raised-button (click)="checkCondition()"> Start Chat
+    </button>
+    <button *ngIf="mode==='view'" color="primary" mat-raised-button (click)="checkConditionBack()"> Back
+    </button>
+    <div *ngIf="mode==='view'">
+      <mat-list style="padding-top: 50px;" class="chat-list" *ngIf="messages.length>0">
+        <mat-list-item *ngFor="let item of messages">
+          <mat-icon mat-list-icon>person</mat-icon>
+          <img mat-line src="{{item.image}}" />
+          <h4 mat-line>{{item.message}}</h4>
+          <p mat-line> {{item.date}} </p>
+        </mat-list-item>
+      </mat-list>
+      <div class="chat-footer-container">
+        <form [formGroup]="messageForm">
+          <mat-form-field class="chat-input">
+            <input matInput maxlength="140" formControlName="message" placeholder="Type your message">
+            <mat-icon matPrefix>message</mat-icon>
+          </mat-form-field>
+          <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
+          <button mat-icon-button type="submit" (click)="submit()" [disabled]="messageForm.invalid">
+            <mat-icon>send</mat-icon>
+          </button>
+        </form>
+      </div>
+    </div>
+  </mat-card>
+</div>
